@@ -1,0 +1,7 @@
+{
+  "name": "rutapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
