@@ -1,0 +1,39 @@
+<ion-app>
+  <ion-menu contentId="main">
+    <ion-content>
+      <ion-icon name="logo-angular" color="danger" style="font-size: 90px"></ion-icon>
+
+      <ion-list class="ion-margin-top" lines="none">
+        <ion-menu-toggle autoHide="false">
+          <ion-item routerLink="/auth">
+            <ion-icon name="log-in-outline" color="primary" slot="start"></ion-icon>
+            <ion-label>Login</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item routerLink="/app/cuenta">
+            <ion-icon name="person-outline" color="primary" slot="start"></ion-icon>
+            <ion-label>Cuenta</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item routerLink="/app/favoritos">
+            <ion-icon name="heart-outline" color="primary" slot="start"></ion-icon>
+            <ion-label>Favoritos</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item routerLink="/app/ajustes">
+            <ion-icon name="construct-outline" color="primary" slot="start"></ion-icon>
+            <ion-label>Ajustes</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
