@@ -13,6 +13,18 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+      },
+      {
+        path: 'map',
+        loadChildren: () => import('./map/map.module').then(m => m.MapPageModule)
+      },
+      {
+        path: 'search',
+        loadChildren: () => import('./search/search.module').then(m => m.SearchPageModule)
+      },
+      {
+        path: 'suggest',
+        loadChildren: () => import('./suggest/suggest.module').then(m => m.SuggestPageModule)
       }
     ]
   }

@@ -12,7 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      backButtonDefaultHref: '/app/home',
+      backButtonText: '',
+      backButtonIcon: 'chevron-back'
+    }),
     AppRoutingModule
   ],
   providers: [
