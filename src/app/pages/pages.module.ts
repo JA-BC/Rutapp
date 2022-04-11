@@ -25,6 +25,10 @@ const routes: Routes = [
       {
         path: 'suggest',
         loadChildren: () => import('./suggest/suggest.module').then(m => m.SuggestPageModule)
+      },
+      {
+        path: 'help',
+        loadChildren: () => import('./help/help.module').then(m => m.HelpPageModule)
       }
     ]
   }
