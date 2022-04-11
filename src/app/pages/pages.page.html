@@ -1,1 +1,56 @@
-<ion-router-outlet></ion-router-outlet>
+<ion-menu contentId="main">
+  <ion-content>
+    <ion-list class="ion-margin-top" lines="none">
+      <ion-item>
+        <ion-label color="medium">
+          <h6><strong>Recorrido: 210m</strong></h6>
+          <small>Desde: 10-10-2022</small>
+        </ion-label>
+
+        <ion-icon name="navigate" slot="end"></ion-icon>
+      </ion-item>
+
+      <hr>
+
+      <ion-menu-toggle autoHide="false">
+        <ion-item>
+          <ion-icon name="balloon" color="danger" slot="start"></ion-icon>
+          <ion-label>Mejora tu ciudad!</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle autoHide="false">
+        <ion-item>
+          <ion-icon name="star" color="warning" slot="start"></ion-icon>
+          <ion-label>Recomendar</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle autoHide="false">
+        <ion-item>
+          <ion-icon name="cog-outline" color="medium" slot="start"></ion-icon>
+          <ion-label>Ajustes</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle autoHide="false">
+        <ion-item>
+          <ion-icon name="alert-circle" color="secondary" slot="start"></ion-icon>
+          <ion-label>Ayuda y soporte</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <hr>
+
+      <ion-menu-toggle autoHide="false">
+        <ion-item>
+          <ion-label>
+            <small>Acerca de</small>
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main"></ion-router-outlet>

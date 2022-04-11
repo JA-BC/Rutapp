@@ -1,0 +1,71 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      Selecionar ruta
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="primary" style="box-shadow: none">
+    <ion-card-content>
+      <ion-card-subtitle>
+        Origen
+      </ion-card-subtitle>
+
+      <ion-card-title>
+        Santo Domingo
+      </ion-card-title>
+
+      <hr class="ion-margin-vertical" style="background: var(--ion-color-light)" />
+
+      <ion-card-subtitle>
+        Destino
+      </ion-card-subtitle>
+
+      <ion-card-title>
+        Ave. 27 de febrero
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list lines="full">
+    <ion-list-header>
+      <ion-label>
+        <h2>Rutas disponibles</h2>
+      </ion-label>
+
+      <ion-button fill="clear" (click)="onFilter()">
+        <ion-icon name="filter"></ion-icon>
+        &nbsp;Filtrar
+      </ion-button>
+    </ion-list-header>
+
+    <ion-item button *ngFor="let x of [1, 2, 3, 4, 5]" routerLink="/app/map">
+      <ion-icon name="bus" color="primary" slot="start"></ion-icon>
+      <ion-label>
+        <h6>Ave. 27 de febrero  </h6>
+        <ion-text color="primary">
+          <small>
+            <ion-icon name="golf" slot="start"></ion-icon>
+            4.5 km
+          </small>
+          <small>&nbsp;&bull;&nbsp;</small>
+          <small>
+            <ion-icon name="time" slot="start"></ion-icon>
+            40 min
+          </small>
+        </ion-text>
+      </ion-label>
+
+      <ion-badge color="success" slot="end">
+        <small>Recomendada</small>
+      </ion-badge>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
