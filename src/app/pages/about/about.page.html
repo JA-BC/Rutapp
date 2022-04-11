@@ -1,0 +1,34 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Acerca de</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label>
+        Términos de uso
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Políticas de privacidad
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-text color="medium" class="ion-text-center">
+    <p>
+      &copy; {{ date | date:'yyyy' }} Rutapp <br />
+      {{ version }}
+    </p>
+  </ion-text>
+</ion-footer>
