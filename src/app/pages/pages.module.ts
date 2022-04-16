@@ -45,6 +45,10 @@ const routes: Routes = [
       {
         path: 'stops',
         loadChildren: () => import('./stops/stops.module').then(m => m.StopsPageModule)
+      },
+      {
+        path: 'lines',
+        loadChildren: () => import('./lines/lines.module').then(m => m.LinesPageModule)
       }
     ]
   }

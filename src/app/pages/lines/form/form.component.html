@@ -1,0 +1,101 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+      Nueva ruta
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="modal.dismiss()">
+        <ion-icon name="close-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-label>
+          <h6>Institución</h6>
+        </ion-label>
+        <ion-select style="border: 1px solid var(--ion-color-light-shade)">
+          <ion-select-option>Institucion 1</ion-select-option>
+          <ion-select-option>Institucion 1</ion-select-option>
+          <ion-select-option>Institucion 1</ion-select-option>
+        </ion-select>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-label>
+          <h6>Nombre</h6>
+        </ion-label>
+        <ion-input style="border: 1px solid var(--ion-color-light-shade)"></ion-input>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-label>
+          <h6>Descripción</h6>
+        </ion-label>
+        <ion-input style="border: 1px solid var(--ion-color-light-shade)"></ion-input>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-label>
+          <h6>Costo promedio</h6>
+        </ion-label>
+        <ion-input type="number" style="border: 1px solid var(--ion-color-light-shade)"></ion-input>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-label>
+          <h6>Tipo de transporte</h6>
+        </ion-label>
+        <ion-list>
+          <ion-radio-group value="biff">
+            <ion-item class="ion-no-padding">
+              <ion-label>Metro</ion-label>
+              <ion-radio slot="start" value="biff"></ion-radio>
+            </ion-item>
+
+            <ion-item class="ion-no-padding">
+              <ion-label>Autobus</ion-label>
+              <ion-radio slot="start" value="griff"></ion-radio>
+            </ion-item>
+
+            <ion-item class="ion-no-padding">
+              <ion-label>Carro</ion-label>
+              <ion-radio slot="start" value="buford"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-checkbox></ion-checkbox>
+          <ion-label>
+            <span class="ion-margin-start">Activo</span>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-row>
+    <ion-col size="6">
+      <ion-button expand="block">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        &nbsp;Guardar
+      </ion-button>
+    </ion-col>
+
+    <ion-col size="6">
+      <ion-button color="light" expand="block" (click)="modal.dismiss()">
+        Cancelar
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
