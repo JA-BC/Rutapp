@@ -4,13 +4,21 @@
       <ion-menu-button autoHide="false" color="primary"></ion-menu-button>
     </ion-buttons>
 
-    <ion-title color="primary" class="ion-text-right">
-      <small>Santo Domingo</small>
+    <ion-title color="primary" class="ion-text-center">
+      <ion-text color="medium">
+        <small>Localización</small>
+      </ion-text>
+
+      <h6 class="ion-no-margin">Santo Domingo</h6>
     </ion-title>
+
+    <ion-avatar class="ion-margin-end" style="width: 2rem; height: auto" slot="end">
+      <img src="assets/img/user.jpg" alt="Usuario">
+    </ion-avatar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
   <div class="ion-margin-vertical ion-padding-vertical"></div>
 
   <h1 class="ion-text-center ion-margin-top">
@@ -68,8 +76,14 @@
       </ion-button>
     </ion-item>
 
+    <ion-list-header>
+      <ion-label><h2>Recientes</h2></ion-label>
+    </ion-list-header>
+
     <ion-item button *ngFor="let x of [1, 2, 3, 4, 5]">
-      <ion-icon name="bus" slot="start"></ion-icon>
+      <ion-badge slot="start">
+        <ion-icon name="bus" style="font-size: 18px;"></ion-icon>
+      </ion-badge>
       <ion-label>
         <h6>Parada {{ x }}</h6>
         <ion-text color="medium">

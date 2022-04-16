@@ -3,19 +3,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { SharedModule } from '@shared/shared.module';
 
-import { MapPage } from './map.page';
+import { StopsPage } from './stops.page';
 import { SwiperModule } from 'swiper/angular';
+import { StopsFormComponent } from './form/form.component';
 import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
     path: '',
-    component: MapPage
+    component: StopsPage
   }
 ];
 
 @NgModule({
-  declarations: [MapPage],
+  declarations: [
+    StopsPage,
+    StopsFormComponent
+  ],
   imports: [
     CommonModule,
     IonicModule,
@@ -26,4 +30,4 @@ const routes: Routes = [
   exports: [],
   providers: [],
 })
-export class MapPageModule { }
+export class StopsPageModule { }

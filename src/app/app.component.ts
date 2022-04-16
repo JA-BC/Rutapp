@@ -18,11 +18,11 @@ export class AppComponent implements OnInit {
   }
 
   private async getPermissions() {
-    // try {
-    //   const granted = await Geolocation.requestPermissions();
-    //   console.log(granted);
-    // } catch(e) {
-    //   console.error('PERMISIONS ERROR:\n', e);
-    // }
+    try {
+      const granted = await Geolocation.requestPermissions();
+      console.log(granted);
+    } catch(e) {
+      console.error('PERMISIONS ERROR:\n', e);
+    }
   }
 }

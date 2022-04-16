@@ -3,21 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { SharedModule } from '@shared/shared.module';
 
-import { MapPage } from './map.page';
+import { ManagementPage } from './management.page';
 import { SwiperModule } from 'swiper/angular';
-import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
     path: '',
-    component: MapPage
+    component: ManagementPage
   }
 ];
 
 @NgModule({
-  declarations: [MapPage],
+  declarations: [ManagementPage],
   imports: [
-    CommonModule,
     IonicModule,
     SharedModule,
     SwiperModule,
@@ -26,4 +24,4 @@ const routes: Routes = [
   exports: [],
   providers: [],
 })
-export class MapPageModule { }
+export class ManagementPageModule { }

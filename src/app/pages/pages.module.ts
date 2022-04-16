@@ -33,6 +33,18 @@ const routes: Routes = [
       {
         path: 'about',
         loadChildren: () => import('./about/about.module').then(m => m.AboutPageModule)
+      },
+      {
+        path: 'settings',
+        loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
+      },
+      {
+        path: 'management',
+        loadChildren: () => import('./management/management.module').then(m => m.ManagementPageModule)
+      },
+      {
+        path: 'stops',
+        loadChildren: () => import('./stops/stops.module').then(m => m.StopsPageModule)
       }
     ]
   }

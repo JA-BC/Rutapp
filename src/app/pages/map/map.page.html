@@ -52,6 +52,39 @@
       <ion-col size="12">
         <h4>Pasos: </h4>
       </ion-col>
+
+      <ion-col size="12" *ngFor="let x of [1, 2, 3, 4, 5]; first as first">
+        <ion-card class="ion-no-margin" style="box-shadow: 0 0 1px">
+          <ion-card-content class="ion-no-padding">
+            <ion-item>
+              <ion-icon [name]="first ? 'navigate-circle' : 'time-outline'" slot="start"></ion-icon>
+
+              <ion-label>
+                <small>{{ first ? 'Salida 5:45pm' : 'Esperar por' }}</small>
+                <h6 class="ion-no-margin">
+                  {{ first ? 'Tu ubicación' : 'Autobus ruta' + x }}
+                </h6>
+              </ion-label>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-icon name="bus" slot="start"></ion-icon>
+
+              <ion-label>
+                <small>Caminar por</small>
+                <h6 class="ion-no-margin">
+                  Parada {{ x }}
+                </h6>
+
+                <ion-text color="medium">
+                  <small>4.5 km</small>
+                  <small>&nbsp;&bull;&nbsp;</small>
+                  <small>40 min</small>
+                </ion-text>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
