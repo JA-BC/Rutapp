@@ -1,0 +1,132 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      Direcciones
+      <div style="font-size: 1rem">
+        <ion-text color="light">
+          <small>
+            <ion-icon name="golf" slot="start"></ion-icon>
+            4.5 km
+          </small>
+          <small>&nbsp;&bull;&nbsp;</small>
+          <small>
+            <ion-icon name="time" slot="start"></ion-icon>
+            40 min
+          </small>
+        </ion-text>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="mapPreview" style="height: 100%;"></div>
+
+  <ion-fab vertical="top" horizontal="start">
+    <ion-fab-button size="small" (click)="goToInitial()">
+      <ion-icon name="locate"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div style="position: absolute; top: 75%; left: 0; right: 0; z-index: 100">
+    <swiper (slideChange)="onSwipe($event)">
+      <ng-template swiperSlide>
+        <ion-card style="box-shadow: 0 0 0 2px var(--ion-color-medium)">
+          <ion-card-header color="medium" style="padding: .5rem 1rem">
+            <ion-card-title>
+              <small>Empieza desde</small>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-margin-top">
+            <ion-card-subtitle>
+              <h6>Tu ubicación actual</h6>
+              <small>Salir a las 19:26</small>
+            </ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ng-template>
+
+      <ng-container *ngFor="let x of markers">
+        <ng-template swiperSlide>
+          <ion-card style="box-shadow: 0 0 0 2px var(--ion-color-success)">
+            <ion-card-header color="success" style="padding: .5rem 1rem">
+              <ion-card-title>
+                <small>Espera 120 min</small>
+              </ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content class="ion-margin-top">
+              <ion-badge>
+                <ion-icon name="bus" style="font-size: 18px"></ion-icon>
+              </ion-badge>
+
+              <ion-button fill="outline" class="ion-float-right" style="height: 2.75rem"
+                (click)="showDetails = true">
+                <ion-icon name="receipt-outline" slot="icon-only"></ion-icon>
+              </ion-button>
+
+              <ion-card-subtitle>
+                <h6>Parada 1</h6>
+                <small>4.5 km</small>
+              </ion-card-subtitle>
+            </ion-card-content>
+          </ion-card>
+        </ng-template>
+      </ng-container>
+    </swiper>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row class="ion-justify-content-between">
+      <ion-col size="auto">
+        <ion-button fill="clear">
+          <ion-icon name="chatbubble-ellipses"></ion-icon>
+          <ion-label><small>&nbsp;Reportar</small></ion-label>
+        </ion-button>
+
+        <ion-button fill="clear">
+          <ion-icon name="share-social"></ion-icon>
+          <ion-label><small>&nbsp;Compartir</small></ion-label>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="auto">
+        <ion-button color="medium" shape="round" (confirm)="onStop()" header="Terminar">
+          <ion-icon name="stop" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-modal [breakpoints]="[.5, 1]" [initialBreakpoint]=".5" [isOpen]="showDetails" (didDismiss)="dismiss()">
+  <ng-template>
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-title>
+          <h6 class="ion-no-margin ion-padding-top">
+            Información de la parada
+          </h6>
+          <ion-text color="medium">
+            <small>Lorem ipsum dolor sit amet.</small>
+          </ion-text>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-text color="primary">
+        <ul>
+          <li *ngFor="let x of [1, 2, 3, 4]">
+            Parada {{ x }}
+          </li>
+        </ul>
+      </ion-text>
+    </ion-content>
+  </ng-template>
+</ion-modal>

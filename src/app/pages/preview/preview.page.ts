@@ -1,26 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { environment } from '@env/environment';
 import { LoadingController } from '@ionic/angular';
-import { Popup, Marker, Map } from 'mapbox-gl';
+import { Map, Marker, Popup } from 'mapbox-gl';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { Router } from '@angular/router';
 import { coordinates } from '@core/helpers';
 
 @Component({
-  templateUrl: './map.page.html'
+  templateUrl: 'preview.page.html'
 })
-export class MapPage implements OnInit {
+export class PreviewPage implements OnInit, OnDestroy {
 
   private mapRef: Map;
 
   markers: Marker[] = [];
+
+  showDetails: boolean = false
 
   constructor(
     private readonly loader: LoadingController,
     private readonly router: Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.inicializeMap();
   }
 
@@ -29,7 +31,7 @@ export class MapPage implements OnInit {
     await loader.present();
 
     this.mapRef = new Map({
-      container: 'map',
+      container: 'mapPreview',
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [-70.009422, 18.479149],
       zoom: 12,
@@ -91,6 +93,10 @@ export class MapPage implements OnInit {
     })
   }
 
+  async onStop() {
+    this.router.navigate(['/app']);
+  }
+
   private getMarkerIcon(title: string) {
     const img = document.createElement('img');
     img.src = 'https://icons.iconarchive.com/icons/custom-icon-design/flatastic-6/512/Circle-icon.png';
@@ -108,25 +114,24 @@ export class MapPage implements OnInit {
     return div;
   }
 
-  async onStart() {
-    try {
-      await LocalNotifications.schedule({
-        notifications: [{
-          title: 'Camina hasta C/1ra proxima C/Primera',
-          body: '8.2 km',
-          id: 1,
-          iconColor: '#2dd36f'
-        }]
-      });
-    } catch(error) {
-      console.error(error);
-    }
+  onSwipe([swiper]: any) {
+    const marker = this.markers[swiper.activeIndex];
+    this.mapRef?.flyTo({ center: marker.getLngLat(), zoom: 16 });
+  }
 
-    this.router.navigate(['/app/preview']);
+  dismiss() {
+    this.showDetails = false;
+
+    return true;
   }
 
   goToInitial() {
-    this.mapRef?.flyTo({ center: this.markers[0].getLngLat(), zoom: 16 })
+    this.mapRef?.flyTo({ center: this.markers[0].getLngLat() })
   }
 
+  ngOnDestroy() {
+    LocalNotifications.cancel({
+      notifications: [{ id: 1 }]
+    });
+  }
 }

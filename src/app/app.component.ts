@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
+import { LocalNotifications } from '@capacitor/local-notifications';
 
 @Component({
   selector: 'app-root',
@@ -19,10 +20,20 @@ export class AppComponent implements OnInit {
 
   private async getPermissions() {
     try {
-      const granted = await Geolocation.requestPermissions();
-      console.log(granted);
+      await this.geolocationPermissions();
+      await this.notificationPermissions();
     } catch(e) {
       console.error('PERMISIONS ERROR:\n', e);
     }
+  }
+
+  private async geolocationPermissions() {
+    const granted = await Geolocation.requestPermissions();
+    console.log(granted);
+  }
+
+  private async notificationPermissions() {
+    const granted = await LocalNotifications.requestPermissions();
+    console.log(granted);
   }
 }

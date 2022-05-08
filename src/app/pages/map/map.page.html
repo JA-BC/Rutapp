@@ -6,7 +6,7 @@
 
     <ion-title>
       <h6 class="ion-no-margin">
-        <strong>Direcciones</strong>
+        <strong>Direccion</strong>
       </h6>
       <small style="font-size: 12px">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, libero!
@@ -18,8 +18,8 @@
 <ion-content>
   <div id="map" style="height: 60vh;"></div>
 
-  <ion-fab vertical="top" horizontal="start" style="margin-top: 4rem">
-    <ion-fab-button size="small">
+  <ion-fab vertical="top" horizontal="start">
+    <ion-fab-button size="small" (click)="goToInitial()">
       <ion-icon name="locate"></ion-icon>
     </ion-fab-button>
   </ion-fab>
@@ -105,7 +105,7 @@
       </ion-col>
 
       <ion-col size="auto">
-        <ion-button color="success" shape="round">
+        <ion-button color="success" shape="round" (confirm)="onStart()" header="Empezar viaje">
           <ion-icon name="play" slot="icon-only"></ion-icon>
         </ion-button>
       </ion-col>

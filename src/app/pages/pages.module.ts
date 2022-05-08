@@ -53,6 +53,10 @@ const routes: Routes = [
       {
         path: 'institutions',
         loadChildren: () => import('./institutions/institutions.module').then(m => m.InstitutionsPageModule)
+      },
+      {
+        path: 'preview',
+        loadChildren: () => import('./preview/preview.module').then(m => m.PreviewPageModule)
       }
     ]
   }
