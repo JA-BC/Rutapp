@@ -12,19 +12,19 @@
   <ion-searchbar style="--box-shadow: 0 0 1px;" placeholder="Busqueda"></ion-searchbar>
 
   <ion-list>
-    <ion-item *ngFor="let x of [1, 2, 3]">
+    <ion-item *ngFor="let x of ['KM 9 Duarte - KM 12', 'Hipodromo - Cementerio 11']; index as i">
       <ion-label>
-        <h6>Ruta {{ x }}</h6>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <h6>{{ x }}</h6>
+        <p>Seleccionar para ver más detalles</p>
       </ion-label>
 
       <ion-note slot="end">
         <div style="display: flex; flex-direction: column;">
           <strong class="ion-text-end" style="margin-bottom: 4px;">
-            ${{ x * 150 }}
+            ${{ i * 150 }}
           </strong>
-          <ion-badge color="success">
-            <small>Activo</small>
+          <ion-badge [color]="i % 2 === 0 ? 'success' : 'medium'">
+            <small>{{ i % 2 === 0 ? 'Activo' : 'Inactivo'  }}</small>
           </ion-badge>
         </div>
       </ion-note>

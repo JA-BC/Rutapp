@@ -50,7 +50,7 @@
         </ion-card>
       </ng-template>
 
-      <ng-container *ngFor="let x of markers">
+      <ng-container *ngFor="let x of markers; index as i">
         <ng-template swiperSlide>
           <ion-card style="box-shadow: 0 0 0 2px var(--ion-color-success)">
             <ion-card-header color="success" style="padding: .5rem 1rem">
@@ -69,8 +69,14 @@
                 <ion-icon name="receipt-outline" slot="icon-only"></ion-icon>
               </ion-button>
 
-              <ion-card-subtitle>
-                <h6>Parada 1</h6>
+              <ion-card-subtitle *ngIf="i === 0">
+                <h6>C/1ra Desp. C/Catuai</h6>
+                <small>4.5 km</small>
+              </ion-card-subtitle>
+
+
+              <ion-card-subtitle *ngIf="i === 1">
+                <h6>Cafe - KM 12</h6>
                 <small>4.5 km</small>
               </ion-card-subtitle>
             </ion-card-content>

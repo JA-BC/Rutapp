@@ -49,13 +49,12 @@
       </ion-button>
     </ion-list-header>
 
-    <ion-item button *ngFor="let x of [1, 2, 3, 4, 5]; first as first"
-      routerLink="/app/map">
+    <ion-item button routerLink="/app/map">
       <ion-badge slot="start">
         <ion-icon name="bus" style="font-size: 18px"></ion-icon>
       </ion-badge>
       <ion-label>
-        <h6>Ave. 27 de febrero  </h6>
+        <h6>Cafe - KM 12 104</h6>
         <ion-text color="primary">
           <small>
             <ion-icon name="golf" slot="start"></ion-icon>
@@ -69,7 +68,7 @@
         </ion-text>
       </ion-label>
 
-      <ion-badge color="success" slot="end" *ngIf="first">
+      <ion-badge color="success" slot="end">
         <small>Recomendada</small>
       </ion-badge>
     </ion-item>

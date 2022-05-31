@@ -6,12 +6,19 @@
 
     <ion-input placeholder="Ingregar ubicación" clearInput></ion-input>
 
-    <ion-spinner name="crescent" color="medium" class="ion-margin-horizontal" slot="end"></ion-spinner>
+    <!-- <ion-spinner name="crescent" color="medium" class="ion-margin-horizontal" slot="end"></ion-spinner> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list lines="full" details="none">
+    <ion-item lines="none" button>
+      <ion-label color="primary">
+        <ion-icon name="map"></ion-icon>
+        Seleccionar en el mapa
+      </ion-label>
+    </ion-item>
+
     <ion-list-header>
       <ion-label>
         <h2>Recientes</h2>
@@ -22,12 +29,29 @@
       </ion-button>
     </ion-list-header>
 
-    <ion-item button *ngFor="let x of [1, 2, 3, 4, 5]" routerLink="/app/suggest">
+    <ion-item button routerLink="/app/suggest">
       <ion-label>
-        <h6>Ubicacion {{ x }}</h6>
-        <ion-text color="medium">
-          <small>Hace 3 días</small>
-        </ion-text>
+        <h6>Avenida 27 de febrero</h6>
+      </ion-label>
+      <ion-icon name="star-outline" color="warning" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item button routerLink="/app/suggest">
+      <ion-label>
+        <h6>Blue Mall</h6>
+        <p>
+          Comercial &bull; Avenida Winston Churchill
+        </p>
+      </ion-label>
+      <ion-icon name="star-outline" color="warning" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item button routerLink="/app/suggest">
+      <ion-label>
+        <h6>IKEA</h6>
+        <p>
+          Muebles &bull; Ave. John F. Kennedy
+        </p>
       </ion-label>
       <ion-icon name="star-outline" color="warning" slot="end"></ion-icon>
     </ion-item>
